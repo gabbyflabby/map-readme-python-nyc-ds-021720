@@ -194,7 +194,7 @@ So the map function goes through each element and executes the altering function
 
 `map`, just like `filter`, is built into python and is always available. It is also computationally more efficient than a manually-coded for loop. 
 
-`map` can be used in more advance ways e.g. given multiple sequence arguments, it sends items taken form sequences in parallel as distinct arguments to the function. Let's see this through in the example below.
+`map` can be used in more advance ways e.g. given multiple sequence arguments, it sends items taken from sequences in parallel as distinct arguments to the function. Let's see this through in the example below.
 
 The `pow` built-in python function takes in two numbers as arguments and calculates the result by raising the first number to the power of the second number. Let's see this in action.
 
@@ -224,7 +224,7 @@ list(map(pow, [2, 4, 8], [3, 5, 7]))
 
 
 
-This shows that with multiple sequences, `map` expects an N-argument function for N sequences i.e. `pow` requires two arguments and map uses use two lists for mapping elements. 
+This shows that with multiple sequences, `map` expects an N-argument function for N sequences i.e. `pow` requires two arguments and map uses two lists for mapping elements. 
 
 ### Summary
 
