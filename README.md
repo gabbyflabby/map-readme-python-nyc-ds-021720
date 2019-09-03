@@ -8,7 +8,7 @@
 
 ### Introduction
 
-In the last section, we saw how we select a subset of a list by iterating through a list of elements to select only those that match a certain criteria.  In this lesson, we learn how to use the `map` function not to return a subset of elements, but to alter each element in a similar manner.
+In the last section, we saw how the `filter` function selects a subset of a list by iterating through all elements and selecting only those that match a certain criterion.  In this lesson, we will learn how to use the `map` function to alter *all* elements in a similar manner.
 
 ### First Solve For One Element
 
@@ -71,11 +71,11 @@ simpsons
 
 
 
-So notice that unlike what we saw in filtering for elements, there is no `if` statement in this `for` loop.  Instead, the number of elements in our output list is the same as the number of elements in our input list.  However, each one of those elements has been altered.
+So notice that unlike what we saw when using `filter` to select elements based on some conditional, there is no `if` statement in this `for` loop.  Instead, the number of elements in our output list is the same as the number of elements in our input list.  However, each one of those elements has been altered.
 
 ### Finding what's common
 
-As you may have guessed, using a for loop to alter each element by applying some operation is a common procedure in programming.  Let's write a function that derives the initials of each person's name.
+As you may have guessed, using a `for` loop to alter each element by applying some operation is a common procedure in programming.  Let's write a function that derives the initials of each person's name.
 
 
 ```python
@@ -135,16 +135,16 @@ def find_initials(elements):
 
 ### Map Function
 
-The map function, allows us to apply the same operation to each element and return a new list of elements receiving the modified elements from this operation. 
+The map function allows us to apply the same operation to each element and returns a new list of elements that have been modified by the operation.
 
-A `map()` function is defined in python like this:
+The `map` function is used like this:
 
 ```python
 map(Function, Sequence)
 
 ```
 
-Let's use the map function with `add_simpson` defined above.
+Let's use the `map` function with `add_simpson` defined above.
 
 
 ```python
@@ -154,7 +154,7 @@ map(add_simpson, names)
 
 
 
-    <map at 0x10eda6860>
+    <map at 0x10d9d0748>
 
 
 
@@ -176,7 +176,7 @@ list(map(add_simpson, names))
 
 
 
-Similarly, we can pass `simpsons` list with `find_initial` to `map` and get the desired output as shown below.
+Similarly, we can pass `simpsons` and `find_initial` to `map` and get the desired output as shown below.
 
 
 ```python
@@ -190,15 +190,13 @@ list(map(find_initial, simpsons))
 
 
 
-So the map function goes through each element and executes the altering function on the current element. Then the return value of the altering function is added as an element to the new list, which is then returned after we coerce the map object to a list.
+So the map function goes through each element and executes the altering function on the current element. Then the return value of the altering function is stored in a map object. The desired output is obtained by coercing the map object to a list.
 
+`map`, just like `filter`, is built into python and is always available. It is also computationally more efficient than a manually-coded for loop. 
 
+`map` can be used in more advance ways e.g. given multiple sequence arguments, it sends items taken form sequences in parallel as distinct arguments to the function. Let's see this through in the example below.
 
-`map`, just like `filter`, is built into python is always available. It is also computationally more efficient than a manually coded for loop. 
-
-`map` can be used in more advance ways e.g. given multiple sequence arguments, it sends items taken form sequences in parallel as distinct arguments to the function. Let's see this through an example below.
-
-The `pow` built-in python function takes in two numbers as arguments and calculates the result by setting second number as power of first number. Let's see this in action.
+The `pow` built-in python function takes in two numbers as arguments and calculates the result by raising the first number to the power of the second number. Let's see this in action.
 
 
 ```python
@@ -212,7 +210,7 @@ pow(2,4)
 
 
 
-So 2 to the power 4 is 16 as seen above. `map` allows us to pass `pow` function along with two lists as arguments to calculate the powers of elements from first list to elements of second list as shown below:
+So 2 to the 4th power is 16 as shown above. `map` allows us to pass the `pow` function along with two lists as arguments to calculate the raise the elements from first list to the powers of the elements of second list as shown below:
 
 
 ```python
